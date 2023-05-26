@@ -123,9 +123,9 @@ export default function Home() {
             <span className='text-primary-600 font-semibold text-xl md:text-3xl'>{data.role}</span>
             <p className='leading-8 text-gray-300 mt-6 tracking-tight font-normal text-lg text-center md:text-left'>{data.description}</p>
             <div className='mt-6 flex justify-center md:justify-start'>
-              <button type='button' onClick={handleCta} className='rounded-full bg-primary-600 hover:bg-primary-500 px-12 py-2.5 font-semibold text-white shadow-xl text-xl transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300'>
+              <a href='https://wa.me/5511953411568' target='_blank' rel="noreferrer" className='rounded-full bg-primary-600 hover:bg-primary-500 px-12 py-2.5 font-semibold text-white shadow-xl text-xl transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300'>
                 {data.cta}
-              </button>
+              </a>
             </div>
             <div className="mt-6 flex gap-4 justify-center md:justify-start">
               <SocialLink
