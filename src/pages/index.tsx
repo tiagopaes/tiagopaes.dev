@@ -143,7 +143,7 @@ export default function Home() {
               />
               <SocialLink
                 target="_blank"
-                href="mailto:tiagopaes37@gmail.com"
+                href="mailto:me@tiagopaes.dev"
                 aria-label="Me envie um email"
                 title="Me envie um email"
                 icon={MailIcon}
