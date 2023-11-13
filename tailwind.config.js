@@ -9,12 +9,9 @@ module.exports = {
     extend: {
       colors: {
         danger: colors.rose,
-        primary: colors.orange,
+        primary: colors.blue,
         success: colors.green,
         warning: colors.yellow,
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       }
     },
   },

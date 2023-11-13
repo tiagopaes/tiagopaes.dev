@@ -2,15 +2,14 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
-    <Html lang="en" className='scroll-smooth'>
+    <Html lang="pt-br" className='scroll-smooth'>
       <Head>
-        {/* Add the Poppins font to the <head> section */}
-        <link
-          href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="icon" type="image/png" href="/profile-pic.png" />
+        {process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' &&
+          <script defer data-domain="tiagopaes.dev" src="https://plausible.io/js/script.js"></script>
+        }
       </Head>
-      <body className='bg-gradient-to-b from-gray-800 to-gray-900 bg-fixed text-gray-50'>
+      <body className='bg-zinc-900 text-gray-50'>
         <Main />
         <NextScript />
       </body>
