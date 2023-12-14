@@ -9,6 +9,7 @@ export default function Home() {
     <>
       <Head>
         <title>Tiago Paes</title>
+        <meta name="google-site-verification" content="RpI7pJTPTVLr8NYfY2KiyOjZ37034ZtslNPWZZ2yzcA" />
       </Head>
       <div className='mx-auto w-full max-w-4xl px-4 lg:px-8 py-12 md:py-36 flex flex-col items-start justify-start gap-y-10' data-aos='fade-up' data-aos-duration='2000'>
         
