@@ -1,5 +1,5 @@
 import { SocialLink } from '@/components/SocialLink';
-import { GitHubIcon, LinkedInIcon, MailIcon } from '@/components/SocialIcons';
+import { GitHubIcon, LinkedInIcon, MailIcon, YoutubeIcon } from '@/components/SocialIcons';
 import Image from 'next/image';
 import Head from 'next/head';
 
@@ -61,6 +61,14 @@ export default function Home() {
                 href="mailto:me@tiagopaes.dev"
                 aria-label="me@tiagopaes.dev"
                 icon={MailIcon}
+              />
+            </li>
+            <li className="flex">
+              <SocialLink
+                target="_blank"
+                href="https://www.youtube.com/@tiagopaees"
+                aria-label="Veja meu canal no Youtube"
+                icon={YoutubeIcon}
               />
             </li>
           </ul>
