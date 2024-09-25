@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <link rel="icon" type="image/png" href="/profile-pic.png" />
         {process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' &&
-          <script defer data-domain="tiagopaes.dev" src="https://plausible.io/js/script.js"></script>
+          <script defer data-domain="tiagopaes.dev" src="https://plausible.tiagopaes.dev/js/script.js"></script>
         }
       </Head>
       <body className='bg-zinc-900 text-gray-50'>
