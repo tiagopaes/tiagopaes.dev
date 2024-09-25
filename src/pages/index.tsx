@@ -63,14 +63,6 @@ export default function Home() {
                 icon={MailIcon}
               />
             </li>
-            <li className="flex">
-              <SocialLink
-                target="_blank"
-                href="https://www.youtube.com/@tiagopaees"
-                aria-label="Veja meu canal no Youtube"
-                icon={YoutubeIcon}
-              />
-            </li>
           </ul>
         </div>
 
