@@ -1,0 +1,14 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="90" fill="#3E4A89" />
+
+  <!-- T Letter Shape -->
+  <rect x="60" y="40" width="80" height="20" fill="#FFFFFF" />
+  <rect x="90" y="60" width="20" height="100" fill="#FFFFFF" />
+
+  <!-- Name Text -->
+  <text x="50%" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#FFFFFF">
+    Tiago Paes
+  </text>
+</svg>
+
