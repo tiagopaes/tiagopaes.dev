@@ -1,6 +1,6 @@
 ---
 title: "Melhorando a eficiência com processamento assíncrono em filas"
-description: "Nesse post eu explico sobre como resolvi esse problema usando processamento assíncrono com filas."
+description: "Nesse post eu explico sobre como resolvi um problema usando processamento assíncrono com filas."
 date: "May 13 2024"
 ---
 
