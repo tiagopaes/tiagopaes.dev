@@ -1,73 +1,27 @@
 ---
-title: "Getting started"
-description: "Hit the ground running."
-date: "Mar 22 2024"
+title: "Melhorando a eficiência com processamento assíncrono em filas"
+description: "esse post eu explico sobre como resolvi esse problema usando processamento assíncrono com filas."
+date: "May 13 2024"
 ---
 
-The basic configuration of Nano is pretty simple.
+Há alguns meses assumi o desenvolvimento de um projeto e logo de cara precisei resolver um problema que estava acontecendo na geração de relatórios. Nesse post eu vou explicar um pouco mais sobre esse problema e como resolvi usando processamento assíncrono com filas.
 
-Edit `src/consts.ts`
+## Cenário problemático
+O sistema estava desenhado para quando o usuário clicar no botão de "Baixar relatório", um endpoint no backend era chamado. O endpoint buscava os dados do banco de dados, processava os dados e retornava para o frontend em formato csv, então o arquivo csv era baixado para a máquina do usuário.
 
-Customize the base site
+Esse fluxo até que funcionava bem quando o relatório tinha poucos registros, mas quando o número de registros aumentava, isso já gerava alguns problemas como timeout na requisição, e as vezes até travava a aplicação inteira pelo consumo exagerado de memória no processamento dos dados.
 
-```ts 
-// src/consts.ts
+## Solução
+A solução adotada foi mudar o fluxo de download dos relatórios, agora quando o usuário solicita um relatório, o backend vai criar um "job" para esse relatório, adiciona-lo a uma fila de processamento e retornar a requisição imediatamente para o frontend informando que o job foi criado.
 
-export const SITE: Site = {
-  NAME: "Astro Nano",
-  EMAIL: "markhorn.dev@gmail.com",
-  NUM_POSTS_ON_HOMEPAGE: 3,
-  NUM_WORKS_ON_HOMEPAGE: 2,
-  NUM_PROJECTS_ON_HOMEPAGE: 3,
-};
-```
+Agora, com esse job adicionado na fila, o sistema em um outro processo que vai consumir os jobs que chegam na fila, vai gerar o relatório e quando terminar vai notificar o usuário que o solicitou.
 
-| Field | Req | Description |
-| :---- | :-- | :-----------|
-| NAME | Yes | Displayed in header and footer. Used in SEO and RSS. |
-| EMAIL | Yes | Displayed in contact section. |
-| NUM_POSTS | Yes | Limit num of posts on home page. |
-| NUM_WORKS | Yes | Limit num of works on home page. |
-| NUM_PROJECTS | Yes | Limit num of projects on home page. |
+Além de mover o processamento do relatório para ser executado em segundo plano, o processamento também foi dividido em pequenas partes (chunks), ou seja, invés de buscar 1 milhão de registros no banco de dados, trazer isso para a memória da aplicação e processar, agora a aplicação busca os registros de 100 em 100 por exemplo, processa os 100, quando termina de processar, busca mais 100 até processar o relatório todo.
 
-Customize your page metadata
+Dessa forma, o problema de timout foi resolvido, já que o endpoint não processa mais o relatório todo na mesma requisição. O problema de consumo de memória também foi resolvido, já que agora há um número limitado de registros que podem ser processados ao mesmo tempo.
 
-```ts 
-// src/consts.ts
+## Tecnologias
+Para esse projeto, eu utilizei as ferramentas do ecosistema Laravel. Usei as filas do laravel, integrada com o redis, e para processar e agrupar os chunks usei os Job batches.
 
-export const HOME: Metadata = {
-  TITLE: "Home",
-  DESCRIPTION: "Astro Nano is a minimal and lightweight blog and portfolio.",
-};
-```
-
-| Field | Req | Description |
-| :---- | :-- | :-----------|
-| TITLE | Yes | Displayed in browser tab. Used in SEO and RSS. |
-| DESCRIPTION | Yes | Used in SEO and RSS. |
-
-Customize your social media
-
-```ts 
-// src/consts.ts
-
-export const SOCIALS: Socials = [
-  { 
-    NAME: "twitter-x",
-    HREF: "https://twitter.com/markhorn_dev",
-  },
-  { 
-    NAME: "github",
-    HREF: "https://github.com/markhorn-dev"
-  },
-  { 
-    NAME: "linkedin",
-    HREF: "https://www.linkedin.com/in/markhorn-dev",
-  }
-];
-```
-
-| Field | Req | Description |
-| :---- | :-- | :-----------|
-| NAME | Yes | Displayed in contact section as a link. |
-| HREF | Yes | External url to social media profile. |
+## Conclusão
+Independente da tecnologia, o mais importante é entender o conceito de filas e processamento assíncrono e saber quando utilizar. Nesse caso específico a solução proposta funcionou bem e o problema foi resolvido.
