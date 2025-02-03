@@ -1,7 +1,7 @@
 ---
 title: "Melhorando a eficiência com processamento assíncrono em filas"
 description: "Nesse post eu explico sobre como resolvi um problema usando processamento assíncrono com filas."
-date: "May 13 2024"
+date: "05/13/2024"
 ---
 
 Há alguns meses assumi o desenvolvimento de um projeto e logo de cara precisei resolver um problema que estava acontecendo na geração de relatórios. Nesse post eu vou explicar um pouco mais sobre esse problema e como resolvi usando processamento assíncrono com filas.
