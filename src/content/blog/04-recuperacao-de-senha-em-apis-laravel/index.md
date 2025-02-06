@@ -4,9 +4,15 @@ description: "Aprenda a implementar um fluxo de redefinição de senha em uma AP
 date: "06/02/2025"
 ---
 
-Este post é a continuação do nosso tutorial sobre **Autenticação de APIs no Laravel com Sanctum**. Se você ainda não conferiu, recomendo dar uma olhada antes de seguir adiante: [Autenticação de APIs no Laravel com Sanctum](https://tiagopaes.dev/blog/02-autenticacao-de-apis-no-laravel-com-sanctum).
+Este post é a continuação do nosso tutorial sobre **Autenticação de APIs no Laravel com Sanctum**. Se você ainda não conferiu, recomendo dar uma olhada também: [Autenticação de APIs no Laravel com Sanctum](https://tiagopaes.dev/blog/02-autenticacao-de-apis-no-laravel-com-sanctum).
 
 A redefinição de senha é uma funcionalidade essencial em qualquer API. No Laravel, podemos implementá-la de forma simples e segura utilizando o sistema de notificações e o pacote de recuperação de senha do próprio framework.
+
+Utilizando o [pacote de recuperação de senha do Laravel](https://laravel.com/docs/11.x/passwords), já temos pronto toda a lógica para redefinição de senha com as melhores práticas de segurança. Nosso trabalho será apenas criar as rotas e implementar os métodos no controlador de autenticação.
+
+Vamos ver como implementar essa funcionalidade passo a passo.
+
+> ⚠️ **Este tutorial foi feito utilizando o Laravel 11, que é a versão atual no momento. Se você estiver usando uma versão diferente, pode ser necessário adaptar alguns passos.**
 
 ## 1. Criando as Rotas de Redefinição de Senha
 
@@ -19,6 +25,10 @@ use Illuminate\Support\Facades\Route;
 Route::post('/auth/forgot-password', [AuthController::class, 'forgotPassword'])->name('auth.forgot-password');
 Route::post('/auth/reset-password', [AuthController::class, 'resetPassword'])->name('auth.reset-password');
 ```
+
+A rota `forgotPassword` é responsável por enviar o link de redefinição de senha para o e-mail do usuário.
+
+A rota `resetPassword` é responsável por redefinir a senha do usuário.
 
 ## 2. Implementando os Métodos no AuthController
 
@@ -73,6 +83,10 @@ class AuthController extends Controller
     }
 }
 ```
+
+O método `forgotPassword` recebe o e-mail do usuário como argumento e utiliza a classe `Password` do Laravel para enviar o link de redefinição de senha.
+
+O método `resetPassword` recebe o token, o e-mail e a nova senha como argumentos e utiliza a classe `Password` do Laravel para redefinir a senha do usuário.
 
 ## 3. Criando a Notificação Personalizada de Redefinição de Senha
 
