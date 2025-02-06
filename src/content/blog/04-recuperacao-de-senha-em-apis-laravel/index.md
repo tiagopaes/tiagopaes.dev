@@ -4,7 +4,7 @@ description: "Aprenda a implementar um fluxo de redefinição de senha em uma AP
 date: "06/02/2025"
 ---
 
-Este post é a continuação do nosso tutorial sobre **Autenticação de APIs no Laravel com Sanctum**. Se você ainda não conferiu, recomendo dar uma olhada também: [Autenticação de APIs no Laravel com Sanctum](https://tiagopaes.dev/blog/02-autenticacao-de-apis-no-laravel-com-sanctum).
+Este post é a continuação do nosso tutorial sobre **Autenticação de APIs no Laravel com Sanctum**. Se você ainda não conferiu, recomendo dar uma olhada também: [Autenticação de APIs no Laravel com Sanctum](/blog/02-autenticacao-de-apis-no-laravel-com-sanctum).
 
 A redefinição de senha é uma funcionalidade essencial em qualquer API. No Laravel, podemos implementá-la de forma simples e segura utilizando o sistema de notificações e o pacote de recuperação de senha do próprio framework.
 
