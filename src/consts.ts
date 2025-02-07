@@ -18,7 +18,7 @@ export const BLOG: Metadata = {
 };
 
 export const PROJECTS: Metadata = {
-  TITLE: "PRojetos",
+  TITLE: "Projetos",
   DESCRIPTION: "Lista dos meus projetos recentes, portifólio.",
 };
 
