@@ -1,7 +1,7 @@
 ---
 title: "Recuperação de Senha em APIs Laravel"
 description: "Aprenda a implementar um fluxo de redefinição de senha em uma API Laravel."
-date: "06/02/2025"
+date: "02/06/2025"
 ---
 
 Este post é a continuação do nosso tutorial sobre **Autenticação de APIs no Laravel com Sanctum**. Se você ainda não conferiu, recomendo dar uma olhada também: [Autenticação de APIs no Laravel com Sanctum](/blog/02-autenticacao-de-apis-no-laravel-com-sanctum).
