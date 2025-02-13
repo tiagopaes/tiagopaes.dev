@@ -6,6 +6,8 @@ date: "02/06/2025"
 
 Este post é a continuação do nosso tutorial sobre **Autenticação de APIs no Laravel com Sanctum**. Se você ainda não conferiu, recomendo dar uma olhada também: [Autenticação de APIs no Laravel com Sanctum](/blog/02-autenticacao-de-apis-no-laravel-com-sanctum).
 
+Para aqueles que preferem conteúdo em vídeo, este tutorial também está disponível no meu canal do YouTube. Confira o vídeo completo aqui: https://youtu.be/YzehJJzuVeI
+
 A redefinição de senha é uma funcionalidade essencial em qualquer API. No Laravel, podemos implementá-la de forma simples e segura utilizando o sistema de notificações e o pacote de recuperação de senha do próprio framework.
 
 Utilizando o [pacote de recuperação de senha do Laravel](https://laravel.com/docs/11.x/passwords), já temos pronto toda a lógica para redefinição de senha com as melhores práticas de segurança. Nosso trabalho será apenas criar as rotas e implementar os métodos no controlador de autenticação.
