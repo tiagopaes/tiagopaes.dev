@@ -37,6 +37,6 @@ export const SOCIALS: Socials = [
   },
   {
     NAME: "whatsapp",
-    HREF: "https://wa.me/5511953411568"
+    HREF: "https://wa.me/551151998487"
   }
 ];
