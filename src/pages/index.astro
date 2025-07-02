@@ -1,25 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import Container from "@components/Container.astro";
-import PageLayout from "@layouts/PageLayout.astro";
-import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
-import { dateRange } from "@lib/utils";
-import { SITE, HOME, SOCIALS } from "@consts";
-
-const blog = (await getCollection("blog"))
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0,SITE.NUM_POSTS_ON_HOMEPAGE);
-
-const projects = (await getCollection("projects"))
-  .filter(project => !project.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0,SITE.NUM_PROJECTS_ON_HOMEPAGE);
-
+import PageLayout from "@layouts/PageLayout.astro";
 ---
 
-<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+<PageLayout title="Tiago Paes | Desenvolvedor De Software" description="Agentes de IA que atendem no WhatsApp." hideHeader>
   <Container>
     <h4 class="animate font-semibold text-black dark:text-white flex flex-col">
       <img class="rounded-full w-24 h-24 mb-2" src="https://avatars.githubusercontent.com/u/21131500?v=4" />
@@ -30,78 +15,61 @@ const projects = (await getCollection("projects"))
       <section>
         <article class="space-y-4">
           <p class="animate">
-            Eu sou um Desenvolvedor Web Fullstack com foco em Laravel e PHP, atuando há mais de 8 anos profissionalmente.
+            Desenvolvo agentes de IA que atendem no WhatsApp, tiram dúvidas iniciais, mostram o catálogo, filtram curiosos e entregam só os leads prontos para a equipe de vendas.
           </p>
-          <p class="animate">
-            Tenho experiência em criação de SaaS, integrações com APIs, automações com Inteligência Artificial e desenvolvimento backend de alta performance.
-          </p>
-          <p class="animate">
-            Se você busca um desenvolvedor experiente para te ajudar a colocar um projeto no ar, automatizar processos ou integrar sistemas, entre em contato.
-          </p>
+
+          <div class="animate">
+            <h5 class="font-semibold mb-2 text-black">Problemas que resolvo:</h5>
+            <ul class="list-disc space-y-1">
+              <li>Equipe gastando tempo com "curiosos" em vez de fechar vendas</li>
+              <li>Perda de clientes por demora no primeiro contato no WhatsApp</li>
+              <li>Equipe sobrecarregada com dúvidas repetitivas</li>
+              <li>Atendimento lento ou fora do horário comercial que faz seu cliente sumir</li>
+            </ul>
+          </div>
         </article>
       </section>
 
-      <!--
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Últimos posts
-          </h5>
-          <Link href="/blog">
-            Ver todos
-          </Link>
-        </div>
-        <ul class="flex flex-col gap-4">
-          {blog.map(post => (
-            <li>
-              <ArrowCard entry={post} />
-            </li>
-          ))}
-        </ul>
+      <section>
+        <article class="space-y-4">
+          <h5 class="font-semibold mb-2 text-black animate">Exemplo Prático: Atendimento Automatizado com IA</h5>
+          
+          <div class="animate">
+            <p>Veja no vídeo abaixo como funciona o atendimento automatizado com IA no WhatsApp.</p>
+          </div>
+
+          <div class="animate">
+            <iframe 
+              class="w-full aspect-video rounded-lg"
+              src="https://www.youtube.com/embed/r_zVU2SXxic" 
+              title="Demonstração do Agente de IA"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </article>
       </section>
 
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Recent projects
-          </h5>
-          <Link href="/projects">
-            See all projects
-          </Link>
-        </div>
-        <ul class="flex flex-col gap-4">
-          {projects.map(project => (
-            <li>
-              <ArrowCard entry={project} />
-            </li>
-          ))}
-        </ul>
-      </section> -->
+      <section>
+        <article class="space-y-4">
+          <h5 class="font-semibold mb-2 text-black animate">Experiência Profissional</h5>
+          <p class="animate">
+            +8 anos de experiência como desenvolvedor de software. Hoje aplico essa 
+            experiência para desenvolver agentes de IA que automatizam atendimento no WhatsApp.
+            Veja meu perfil no <Link href="https://www.linkedin.com/in/tiagopaees" external>LinkedIn</Link>.
+          </p>
+        </article>
+      </section>
 
       <section class="animate space-y-4">
         <h5 class="font-semibold text-black dark:text-white">
-          Entre em contato
+          Quer automatizar seu atendimento?
         </h5>
         <article>
           <p>
-            Fique a vontade para entrar em contato comigo através dos links abaixo ou por email.
+            Me chama no <Link href="https://wa.me/551151998487" external>Whatsapp</Link>.
           </p>
         </article>
-        <ul class="flex flex-wrap gap-2">
-          {SOCIALS.map(SOCIAL => (
-            <li class="flex gap-x-2 text-nowrap">
-              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
-                {SOCIAL.NAME}
-              </Link>
-              {"/"}
-            </li>
-          ))}
-          <li class="line-clamp-1">
-            <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`}>
-              {SITE.EMAIL}
-            </Link>
-          </li>
-        </ul>
       </section>
     </div>
   </Container>
