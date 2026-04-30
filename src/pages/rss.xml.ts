@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { HOME } from "@consts";
+import { getEntrySlug } from "@lib/utils";
 
 type Context = {
   site: string
@@ -24,7 +25,7 @@ export async function GET(context: Context) {
       title: item.data.title,
       description: item.data.description,
       pubDate: item.data.date,
-      link: `/${item.collection}/${item.slug}/`,
+      link: `/${item.collection}/${getEntrySlug(item.id)}/`,
     })),
   });
 }

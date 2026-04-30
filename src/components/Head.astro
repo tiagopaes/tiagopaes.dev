@@ -8,7 +8,7 @@ import inter400 from "@fontsource/inter/files/inter-latin-400-normal.woff2";
 import inter600 from "@fontsource/inter/files/inter-latin-600-normal.woff2";
 import lora400 from "@fontsource/lora/files/lora-latin-400-normal.woff2";
 import lora600 from "@fontsource/lora/files/lora-latin-600-normal.woff2";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -18,7 +18,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/nano.png" } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -58,7 +58,7 @@ const { title, description, image = "/nano.png" } = Astro.props;
 <!-- Google Search Console -->
 <meta name="google-site-verification" content="RpI7pJTPTVLr8NYfY2KiyOjZ37034ZtslNPWZZ2yzcA">
 
-<ViewTransitions  />
+<ClientRouter  />
 
 <!-- Analytics -->
 <script is:inline defer="" data-domain="tiagopaes.dev" src="https://plausible.tiagopaes.dev/js/script.outbound-links.js"></script>
