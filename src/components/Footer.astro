@@ -2,13 +2,19 @@
 import Container from "@components/Container.astro";
 import { SITE } from "@consts";
 import BackToTop from "@components/BackToTop.astro";
+
+type Props = {
+  lang?: string;
+};
+
+const { lang = "pt-br" } = Astro.props;
 ---
 
 <footer class="animate">
   <Container>
     <div class="relative">
       <div class="absolute right-0 -top-20">
-        <BackToTop />
+        <BackToTop lang={lang} />
       </div>
     </div>
     <div class="flex justify-between items-center">
