@@ -7,14 +7,15 @@ type Props = {
   title: string;
   description: string;
   hideHeader?: boolean;
+  lang?: string;
 };
 
-const { title, description, hideHeader = false } = Astro.props;
+const { title, description, hideHeader = false, lang = "pt-br" } = Astro.props;
 
 ---
 
 <!doctype html>
-<html lang="pt-br">
+<html lang={lang}>
   <head>
     <Head title={title} description={description} />
   </head>
